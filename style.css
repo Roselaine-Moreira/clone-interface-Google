@@ -1,0 +1,180 @@
+/*********************Reset*********************/
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+*,
+input,
+button{
+font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body{
+  height: 100%;/*html e body vão ter 100% de altura*/
+}
+
+body{
+  display: flex;/*agora o content usa todo o espaço que tem pra ele*/
+  flex-direction: column;
+}
+
+/*********************Header*********************/
+.menu{
+  height: 48px;
+  width: 100%;/*para consumir a maior largura possível*/
+  display: flex;/*para deixar os elementos em linha*/
+  justify-content: space-between;/*o máximo de espaço entre a esquerda e a direita*/
+  align-items: center;
+}
+
+.menu__section{
+display: flex;/*para deixar os elementos do menu em linha*/
+align-items: center;/*garantir que os elementos estejam alinhados*/
+}
+
+.menu__section.left .menu__icon{
+  padding: 12px 16px;/*espaço em volta do ícone hamburguer*/
+}
+
+.menu__link{
+  text-transform: uppercase;/*deixa o texto em letra maiúscula*/
+  font-size: 13px;/*tamanho da fonte*/
+  font-weight: 600;/*largura das letras*/
+  color: #757575;
+  padding: 12px 8px;/*espaço entre as palavras All e Image*/
+  text-decoration: none;/*tira o sublinhado do link*/
+}
+
+.menu__link.active{
+  color: #4285f4;
+  border-bottom: 2px solid #4285f4;
+}
+
+.menu__link:not(.active){/*menus links que não forem ativos vão ter ter uma margin-bottom*/
+  margin-bottom: 2px;/*faz uma borda invisível*/
+}
+
+.menu__section.right{
+  margin-right: 4px;/*pequeno espaço na lateral esquerda*/
+}
+
+.menu__section.right .menu__icon{
+  padding: 12px;/*espaço em volta do ícone */
+}
+
+.menu__profile{
+  padding: 4px;
+  width: 40px;
+  height: 40px;
+  position: relative;/*"pai do frame", o frame deve se posicionar em relação ao menu__profile
+  não em relação ao avatar*/
+}
+
+.menu__avatar{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;/*deixa a imagem redonda*/
+}
+
+.menu__avatar--frame{
+  position: absolute;/*vai saltar uma camada acima se posiciona em relação ao seu pai que 
+  é a classe que tem position:relative*/
+  top: 0;
+  left: 0;
+}
+
+
+
+/*********************Main*********************/
+.content{
+  flex: 1;/*para a main consumir todo espaço que pode*/
+  display: flex;/*Vai colocar um do lado do outro*/
+  flex-direction: column;/*deixou um elemento abaixo do outro*/
+  padding: 56px 4px 0;
+  justify-content: center;/*centraliza os itens*/
+  align-items: center;/*alinha os itens no centro*/
+}
+
+.content__logo{
+  height: 56px;/*deixou a logo um pouco menor*/
+}
+
+.content__search{
+  margin-top: 18px;/*desgrudou da logo*/
+  width: 100%;/*pode ocupar a largura total da tela, e se ajustar as telas pequenas*/
+  max-width: 736px;/*para não ficar tão grande em telas maiores*/
+  padding: 7px 18px 6px 20px;
+  font-size: 18px;
+  color: rgba(0,0,0, 0.87);
+  background-color: transparent;/*se o fundo da tela fosse escuro, 
+  sem esta propriedade, o input ficaria branco por dentro*/
+  border-radius: 11px;
+  border: solid 1px #dadce0;
+  outline: 0;/*para tirar aquela linha que fica na volta do input*/
+}
+
+.content__offer{
+  margin-top: 24px;
+  font-size: 13px;
+  padding: 6px 12px;
+}
+
+.content__offer a{
+  text-decoration: none;
+  color: #4285f4;
+}
+
+
+
+/*********************Footer*********************/
+.footer{
+  margin-top: 24px;
+  display: flex;/*deixa o footer em formato linha um do lado do outro*/
+  flex-direction: column;/*deixa o footer em formato de coluna um embaixo do outro*/
+  background: #f2f2f2;
+}
+ 
+.footer__section:not(:first-child){/*footer section que não é o primeiro da lista*/
+border-top: 1px solid #e4e4e4;/*aplica a borda top somente na segunda section*/
+}
+
+.footer__location{
+  font-size: 16px;
+  color: #757575;
+  padding: 10px 12px;
+}
+
+.footer__links{
+  display: flex;
+  justify-content: center;/*centraliza os itens*/
+  align-items: center;/*alinha os itens no centro*/
+
+  font-size: 13px;
+  padding: 10px;
+}
+
+.footer__links a{
+  text-decoration: none;
+  color: #757575;
+}
+
+.footer__links a:not(:first-child){/*ignora o primeiro a e não aplica a margin(aplica em todos menos no primeiro)*/
+margin-left: 27px;
+}
+
+
+
+
+/*****************Media Query*****************/
+/* quando a largura mínima da tela for 763px, a gente vai mudar o tamanho do content */
+@media (min-width:763px){
+  .content{
+    padding-top: 120px;
+  }
+  .content__logo{
+    height: 100px;
+  }
+}
